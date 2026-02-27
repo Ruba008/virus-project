@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: virus-app
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./attack:/script/attack
+      - ./defend:/script/defend
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
